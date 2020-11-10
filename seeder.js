@@ -1,9 +1,9 @@
-const db = require("./models/mongoose");
+const { Product } = require("./models");
 const faker = require("faker");
 
-const createProduct = () => {
+module.exports = async () => {
   for (let i = 0; i < 40; i++) {
-    let product = new db.Product({
+    const product = new Product({
       name: faker.commerce.productName(),
       description: faker.commerce.productDescription(),
       image: faker.image.technics(),
@@ -11,7 +11,6 @@ const createProduct = () => {
       stock: faker.random.number(),
       outstanding: faker.random.boolean(),
     });
-    product.save();
+    await product.save();
   }
 };
-module.exports = createProduct;

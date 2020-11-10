@@ -12,9 +12,8 @@ const userSchema = new Schema(
     userAddress: String,
     cellPhone: String,
     roles: Number,
-    list_orders:[{​​​​ type: Schema.Types.ObjectId, ref: "Order"}​​​​],
+    list_orders: [{ type: Schema.Types.ObjectId, ref: "Order" }],
     tokens: [],
-    
   },
   { timestamps: true }
 );
@@ -39,4 +38,5 @@ userSchema.pre("save", function (next) {
     });
   });
 });
-module.exports = userSchema;
+const User = mongoose.model("User", userSchema);
+module.exports = User;

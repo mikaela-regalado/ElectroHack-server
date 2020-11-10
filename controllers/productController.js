@@ -1,4 +1,4 @@
-const db = require("../models/mongoose");
+//const db = require("../models");
 
 const productController = {
   all: async (req, res) => {},
