@@ -6,13 +6,13 @@ SALT_WORK_FACTOR = 10;
 const userSchema = new Schema(
   {
     firstName: String,
-    lastname: String,
+    lastName: String,
     email: String,
     password: String,
     userAddress: String,
     cellPhone: String,
     roles: Number,
-    list_orders: [{​​​​ type: Schema.Types.ObjectId, ref: "Order" }​​​​],
+    list_orders:[{​​​​ type: Schema.Types.ObjectId, ref: "Order"}​​​​],
     tokens: [],
     
   },
