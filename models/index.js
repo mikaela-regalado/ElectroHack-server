@@ -4,7 +4,9 @@ const Product = require("./Product");
 const Order = require("./Order");
 const User = require("./User");
 
-mongoose.connect("mongodb://localhost/db-ElectroHack");
+mongoose.connect("mongodb://localhost/db-ElectroHack", {
+  useNewUrlParser: true,
+});
 
 mongoose.connection
   .once("open", () =>
