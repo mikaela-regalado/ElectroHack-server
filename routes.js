@@ -8,5 +8,6 @@ const routes = (app) => {
 
   //Products
   app.get("/products", productController.all); //Productos de la home
+  app.get("/products/:slug", productController.one); //Producto
 };
 module.exports = routes;

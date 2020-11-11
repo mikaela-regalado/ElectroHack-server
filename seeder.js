@@ -11,6 +11,7 @@ module.exports = async () => {
       stock: faker.random.number(),
       outstanding: faker.random.boolean(),
     });
+    product.slugify = product.name;
     await product.save();
   }
 };
