@@ -1,6 +1,12 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const slugify = require("slugify");
+//const Category = require("./Category");
+
+const categorySchema = new Schema({
+  code: Number,
+  type: String,
+});
 
 const productSchema = new Schema({
   name: String,
@@ -10,7 +16,7 @@ const productSchema = new Schema({
   stock: Number,
   outstanding: Boolean,
   slug: String,
-  category: { type: Schema.Types.ObjectId, ref: "Category" },
+  category: categorySchema,
 });
 
 productSchema.virtual("slugify").set(function (name) {
