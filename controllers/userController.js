@@ -12,17 +12,14 @@ const userController = {
       cellPhone: req.body.cellPhone,
     });
     user.save();
-    console.log(reqToken(user));
     res.json(reqToken(user));
   },
 
   one: async (req, res) => {
     const { email, password } = req.body;
-    console.log(req.body);
     const user = await db.User.findOne({ email: email });
     if (user) {
       if (bcrypt.compareSync(password, user.password)) {
-        console.log(reqToken(user));
         res.json(reqToken(user));
       } else {
         res.json("Contraseña incorrecta");
