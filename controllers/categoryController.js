@@ -1,14 +1,16 @@
 const db = require("../models");
 
 const categoryController = {
-  all: async (req, res) => {
-    const categories = await db.Category.find();
+  list: async (req, res) => {
+    const categories = await db.Category.find(req.query);
     res.status(200).json(categories);
   },
 
   one: async (req, res) => {
-    const category = await db.Category.findOne({ slug: req.query });
-    return category;
+    const category = await db.Category.findOne({
+      slug: req.params.slug,
+    }).populate("productList");
+    res.status(200).json(category);
   },
 };
 
