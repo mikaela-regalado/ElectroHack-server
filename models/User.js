@@ -17,6 +17,10 @@ const userSchema = new Schema(
   { timestamps: true }
 );
 
+userSchema.virtual("fullName").get(function () {
+  return this.firstName + " " + this.lastName;
+});
+
 userSchema.methods.validatePassword = async function (password) {
   return await bcrypt.compare(password, this.password);
 };

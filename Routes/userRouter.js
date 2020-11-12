@@ -19,5 +19,6 @@ router.get("/orders", orderController.list); //Nueva orden. PRECISAMOS AGREGAR E
 
 //Usuario
 router.post("/users", userController.store); //Crear Usuario
+router.get("/users", userController.one); //Login de usuario
 
 module.exports = router;
