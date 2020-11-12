@@ -1,7 +1,7 @@
 const db = require("../models");
 
 const productController = {
-  many: async (req, res) => {
+  list: async (req, res) => {
     let query = req.query;
     if (query.slug) {
       const category = await db.Category.findOne(req.query);

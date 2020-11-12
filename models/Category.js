@@ -6,6 +6,9 @@ const categorySchema = new Schema({
   code: Number,
   type: String,
   slug: String,
+  description: String,
+  image: String,
+  productList: [{ type: Schema.Types.ObjectId, ref: "Product" }],
 });
 
 categorySchema.virtual("slugify").set(function (type) {

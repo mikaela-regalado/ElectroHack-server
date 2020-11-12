@@ -1,16 +1,20 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const path = require("path");
-const routes = require("./routes");
 const seeder = require("./seeder");
 const PORT = process.env.APP_PORT;
+const userRouter = require("./Routes/userRouter");
+const adminRouter = require("./Routes/adminRouter");
 
 app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 
-routes(app);
+app.use("/admin", adminRouter);
+app.use(userRouter);
 
 //seeder();
 

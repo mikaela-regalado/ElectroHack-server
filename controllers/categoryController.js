@@ -1,8 +1,8 @@
 const db = require("../models");
 
 const categoryController = {
-  all: async (req, res) => {
-    const categories = await db.Category.find();
+  list: async (req, res) => {
+    const categories = await db.Category.find(req.query).populate("products");
     res.status(200).json(categories);
   },
 
