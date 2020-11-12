@@ -17,9 +17,9 @@ router.get("/categories/:slug", categoryController.one); //Categoria
 
 //Usuario
 router.post("/users", userController.store); //Crear Usuario
-router.get("/users", userController.one); //Login de usuario
+router.post("/token", userController.one); //Login de usuario
 
-router.use(checkJwt({ secret: process.env.JWT_SECRET, algorithms: ["HS256"] }));
+/* router.use(checkJwt({ secret: process.env.JWT_SECRET, algorithms: ["HS256"] })); */
 //Orders
 router.post("/orders", orderController.store); //Nueva orden. PRECISAMOS AGREGAR EL CHECKEO DEL TOKEN
 router.get("/orders", orderController.list); //Nueva orden. PRECISAMOS AGREGAR EL CHECKEO DEL TOKEN: BUYER
