@@ -12,7 +12,7 @@ app.use(express.json());
 
 routes(app);
 
-//seeder();
+// seeder();
 
 app.listen(PORT, () =>
   console.log(`App on: ${path.join(__dirname, process.env.APP_PORT)}`)
