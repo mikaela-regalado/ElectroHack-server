@@ -1,8 +1,14 @@
 const db = require("../models");
+const categoryController = require("./categoryController");
 
 const productController = {
   all: async (req, res) => {
-    const products = await db.Product.find(req.query);
+    let query = req.query;
+    if (query.slug) {
+      const category = await db.Category.findOne(req.query);
+      query = { category: category._id };
+    }
+    const products = await db.Product.find(query);
     res.status(200).json(products);
   },
 
