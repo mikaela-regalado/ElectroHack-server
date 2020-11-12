@@ -2,7 +2,7 @@ const db = require("../models");
 
 const productController = {
   list: async (req, res) => {
-    const products = await db.Product.find(req.query);
+    const products = await db.Product.find(req.query).limit(10);
     res.status(200).json(products);
   },
 

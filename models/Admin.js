@@ -9,9 +9,6 @@ const userSchema = new Schema(
     lastName: String,
     email: String,
     password: String,
-    userAddress: String,
-    cellPhone: String,
-    list_orders: [{ type: Schema.Types.ObjectId, ref: "Order" }],
     tokens: [],
   },
   { timestamps: true }
@@ -37,6 +34,5 @@ userSchema.pre("save", function (next) {
     });
   });
 });
-
 const User = mongoose.model("User", userSchema);
 module.exports = User;

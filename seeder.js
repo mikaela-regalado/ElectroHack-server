@@ -55,7 +55,6 @@ module.exports = async () => {
     product.slugify = product.name;
     const code = Math.floor(Math.random() * 5);
     category = await Category.findOne({ code: code });
-    console.log("CATEGORY: ", category);
     category.productList.push(product._id);
     category.save();
     product.category = category;

@@ -9,7 +9,8 @@ const categoryController = {
   one: async (req, res) => {
     const category = await db.Category.findOne({
       slug: req.params.slug,
-    }).populate("productList");
+    }).populate({ path: "productList", options: { limit: 10 } });
+
     res.status(200).json(category);
   },
 };
