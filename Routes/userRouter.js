@@ -5,11 +5,12 @@ const categoryController = require("../controllers/categoryController");
 const orderController = require("../controllers/orderController");
 
 //Products
-router.get("/products", productController.list); //Productos de la home y categoria
+router.get("/products", productController.list); //Productos de la home
 router.get("/products/:slug", productController.one); //Producto
 
 //Categories
 router.get("/categories", categoryController.list); //Categorias
+router.get("/categories/:slug", categoryController.one); //Categoria
 
 //Orders
 router.post("/orders", orderController.store); //Nueva orden. PRECISAMOS AGREGAR EL CHECKEO DEL TOKEN
