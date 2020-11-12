@@ -2,7 +2,7 @@ const checkJwt = require("express-jwt");
 const cors = require("cors");
 const productController = require("./controllers/productController");
 const categoryController = require("./controllers/categoryController");
-
+const userController = require("./controllers/userController");
 const routes = (app) => {
   app.use(cors());
 
@@ -12,6 +12,9 @@ const routes = (app) => {
 
   //Categories
   app.get("/categories", categoryController.all); //Categorias
+
+  //Usuario
+  app.post("/users", userController.store); //Crear Usuario
 };
 
 module.exports = routes;
