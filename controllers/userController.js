@@ -17,7 +17,6 @@ const userController = {
 
   one: async (req, res) => {
     const { email, password } = req.body;
-    /* console.log(req); */
     const user = await db.User.findOne({ email: email });
     if (user) {
       if (bcrypt.compareSync(password, user.password)) {

@@ -23,5 +23,6 @@ router.post("/token", userController.one); //Login de usuario
 //Orders
 router.post("/orders", orderController.store); //Nueva orden. PRECISAMOS AGREGAR EL CHECKEO DEL TOKEN
 router.get("/orders", orderController.list); //Nueva orden. PRECISAMOS AGREGAR EL CHECKEO DEL TOKEN: BUYER
+router.get("/orders/:id", orderController.one); //Nueva orden. PRECISAMOS AGREGAR EL CHECKEO DEL TOKEN: BUYER
 
 module.exports = router;
