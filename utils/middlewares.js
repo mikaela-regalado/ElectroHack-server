@@ -6,9 +6,21 @@ const middlewares = {
       secret: process.env.JWT_SECRET,
       algorithms: ["HS256"],
     });
-
-    return next();
   },
+
+  isAuthenticated: (req, res, next) =>
+    req.user
+      ? req.user.id
+        ? next()
+        : res.status(401).json({ error: "Identifíquese" })
+      : res.status(401).json({ error: "Identifíquese o regístrese" }),
+
+  isAdmin: (req, res, next) =>
+    req.user.isAdmin
+      ? next()
+      : res
+          .status(401)
+          .json({ error: "No tiene autorización para realizar esta acción" }),
 };
 
 module.exports = middlewares;
