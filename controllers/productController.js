@@ -28,6 +28,28 @@ const productController = {
 
     res.status(200).json({ salio: "salio" });
   },
+
+  update: async (req, res) => {
+    const productToEdit = await db.Product.updateOne(
+      { _id: req.body._id },
+      { name: req.body.name, description: req.body.description }
+    );
+    console.log(productToEdit);
+    res.status(200).json({ "salió?": productToEdit });
+  },
+
+  delete: async (req, res) => {
+    const productToDelete = await db.Product.deleteOne(
+      { _id: req.body._id },
+      function (err) {
+        if (err) return handleError(err);
+        // deleted at most one tank document
+      }
+    );
+
+    console.log(productToDelete);
+    res.status(200).json({ entro: productToDelete });
+  },
 };
 
 module.exports = productController;
