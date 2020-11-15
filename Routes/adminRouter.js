@@ -7,6 +7,7 @@ const orderController = require("../controllers/orderController");
 //Products
 router.get("/products", productController.list); //Productos de la home y categoria
 router.get("/products/:slug", productController.one); //Producto
+router.post("/products", productController.create); //Crear un producto
 
 //Categories
 router.get("/categories", categoryController.list); //Categorias
