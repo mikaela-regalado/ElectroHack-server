@@ -12,7 +12,7 @@ const productController = {
     res.status(200).json(product);
   },
 
-  create: async (req, res) => {
+  store: async (req, res) => {
     // console.log(req.body);
     const newProduct = new db.Product({
       name: req.body.name,
@@ -32,10 +32,22 @@ const productController = {
   update: async (req, res) => {
     const productToEdit = await db.Product.updateOne(
       { _id: req.body._id },
-      { name: req.body.name, description: req.body.description }
+      {
+        name: req.body.name,
+        description: req.body.description,
+        image: req.body.image,
+        price: req.body.price,
+        stock: req.body.stock,
+        outstanding: req.body.outstanding,
+        slug: req.body.slug,
+        category: req.body.category,
+      },
+      function (err) {
+        if (err) return handleError(err);
+      }
     );
     console.log(productToEdit);
-    res.status(200).json({ "salió?": productToEdit });
+    res.status(200).json({ "producto actualizado": productToEdit });
   },
 
   delete: async (req, res) => {

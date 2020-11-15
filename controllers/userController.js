@@ -28,6 +28,15 @@ const userController = {
       res.json("Datos incorrectos");
     }
   },
+
+  update: async (req, res) => {
+    const productToEdit = await db.Product.updateOne(
+      { _id: req.body._id },
+      { name: req.body.name, description: req.body.description }
+    );
+    console.log(productToEdit);
+    res.status(200).json({ "salió?": productToEdit });
+  },
 };
 
 module.exports = userController;

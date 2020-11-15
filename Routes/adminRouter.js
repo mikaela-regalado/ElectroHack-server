@@ -7,7 +7,7 @@ const orderController = require("../controllers/orderController");
 //Products
 router.get("/products", productController.list); //Productos de la home y categoria
 router.get("/products/:slug", productController.one); //Producto
-router.post("/products", productController.create); //Crear un producto
+router.post("/products", productController.store); //Crear un producto
 router.patch("/products", productController.update); //Update un producto
 router.delete("/products", productController.delete); //Update un producto
 
