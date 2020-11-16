@@ -30,12 +30,25 @@ const userController = {
   },
 
   update: async (req, res) => {
-    const productToEdit = await db.Product.updateOne(
+    const userToUpdate = await db.User.updateOne(
       { _id: req.body._id },
-      { name: req.body.name, description: req.body.description }
+      {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        password: req.body.password,
+        userAddress: req.body.userAddress,
+        cellPhone: req.body.cellPhone,
+        list_orders: [],
+        tokens: [],
+      },
+      { timestamps: true },
+      function (err) {
+        if (err) return handleError(err);
+      }
     );
-    console.log(productToEdit);
-    res.status(200).json({ "salió?": productToEdit });
+    console.log(req.body);
+    res.status(200).json({ "producto actualizado": userToUpdate });
   },
 };
 

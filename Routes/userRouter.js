@@ -18,6 +18,7 @@ router.get("/categories/:slug", categoryController.one); //Categoria
 //Usuario
 router.post("/users", userController.store); //Crear Usuario
 router.post("/token", userController.one); //Login de usuario
+router.patch("/users", userController.update); //Update de usuario
 
 /* router.use(middlewares.checkJwt, middlewares.isAuthenticated); */
 router.use(checkJwt({ secret: process.env.JWT_SECRET, algorithms: ["HS256"] }));

@@ -46,7 +46,7 @@ const productController = {
         if (err) return handleError(err);
       }
     );
-    console.log(productToEdit);
+    console.log(req.body);
     res.status(200).json({ "producto actualizado": productToEdit });
   },
 
