@@ -50,6 +50,18 @@ const userController = {
     console.log(req.body);
     res.status(200).json({ "producto actualizado": userToUpdate });
   },
+
+  delete: async (req, res) => {
+    const userToDelete = await db.User.deleteOne(
+      { _id: req.body._id },
+      function (err) {
+        if (err) return handleError(err);
+        // deleted at most one tank document
+      }
+    );
+    console.log(userToDelete);
+    res.status(200).json({ message: userToDelete });
+  },
 };
 
 module.exports = userController;

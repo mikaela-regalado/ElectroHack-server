@@ -60,7 +60,7 @@ const productController = {
     );
 
     console.log(productToDelete);
-    res.status(200).json({ entro: productToDelete });
+    res.status(200).json({ message: productToDelete });
   },
 };
 
