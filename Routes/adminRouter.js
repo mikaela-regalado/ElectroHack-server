@@ -13,6 +13,9 @@ router.delete("/products", productController.delete); //Update un producto
 
 //Categories
 router.get("/categories", categoryController.list); //Categorias
+router.post("/categories", categoryController.store); //Categorias
+router.patch("/categories", categoryController.update); //Categorias
+router.delete("/categories", categoryController.delete); //Categorias
 
 //Orders
 router.post("/orders", orderController.store); //Nueva orden. PRECISAMOS AGREGAR EL CHECKEO DEL TOKEN
