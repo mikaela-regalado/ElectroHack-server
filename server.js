@@ -16,7 +16,11 @@ app.use(cors());
 app.use("/admin", adminRouter);
 app.use(userRouter);
 
+<<<<<<< Updated upstream
 // seeder();
+=======
+/* seeder(); */
+>>>>>>> Stashed changes
 
 app.listen(PORT, () =>
   console.log(`App on: ${path.join(__dirname, process.env.APP_PORT)}`)
