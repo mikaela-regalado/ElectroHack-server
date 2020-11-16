@@ -3,26 +3,27 @@ const Schema = mongoose.Schema;
 bcrypt = require("bcryptjs");
 SALT_WORK_FACTOR = 10;
 
-const userSchema = new Schema(
+const adminSchema = new Schema(
   {
     firstName: String,
     lastName: String,
-    email: String,
+    email: { type: String, unique: true },
     password: String,
+    isAdmin: { type: Boolean, default: true },
     tokens: [],
   },
   { timestamps: true }
 );
 
-userSchema.methods.validatePassword = async function (password) {
+adminSchema.methods.validatePassword = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
 
-userSchema.methods.hashPassword = async function (password) {
+adminSchema.methods.hashPassword = async function (password) {
   return bcrypt.hashSync(password, 10);
 };
 
-userSchema.pre("save", function (next) {
+adminSchema.pre("save", function (next) {
   var user = this;
   if (!user.isModified("password")) return next();
   bcrypt.genSalt(SALT_WORK_FACTOR, function (err, salt) {
@@ -34,5 +35,7 @@ userSchema.pre("save", function (next) {
     });
   });
 });
-const User = mongoose.model("User", userSchema);
-module.exports = User;
+
+const Admin = mongoose.model("Admin", adminSchema);
+
+module.exports = Admin;

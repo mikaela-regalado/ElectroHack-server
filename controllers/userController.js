@@ -1,5 +1,5 @@
 const db = require("../models");
-const reqToken = require("../utils/reqToken");
+const userToken = require("../utils/userToken");
 
 const userController = {
   store: async (req, res) => {
@@ -12,7 +12,7 @@ const userController = {
       cellPhone: req.body.cellPhone,
     });
     user.save();
-    res.json(reqToken(user));
+    res.json(userToken(user));
   },
 
   one: async (req, res) => {
@@ -20,7 +20,7 @@ const userController = {
     const user = await db.User.findOne({ email: email });
     if (user) {
       if (bcrypt.compareSync(password, user.password)) {
-        res.json(reqToken(user));
+        res.json(userToken(user));
       } else {
         res.json("Contraseña incorrecta");
       }

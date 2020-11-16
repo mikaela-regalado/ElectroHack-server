@@ -7,8 +7,8 @@ const userSchema = new Schema(
   {
     firstName: String,
     lastName: String,
-    email: String,
-    password: String,
+    email: { type: String, unique: true },
+    password: { type: String, unique: true },
     userAddress: String,
     cellPhone: String,
     list_orders: [{ type: Schema.Types.ObjectId, ref: "Order" }],

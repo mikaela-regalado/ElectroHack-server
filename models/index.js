@@ -3,6 +3,7 @@ const Category = require("./Category");
 const Product = require("./Product");
 const Order = require("./Order");
 const User = require("./User");
+const Admin = require("./Admin");
 
 mongoose.connect("mongodb://localhost/db-ElectroHack", {
   useNewUrlParser: true,
@@ -19,5 +20,6 @@ module.exports = {
   Product,
   Order,
   User,
+  Admin,
   mongoose,
 };

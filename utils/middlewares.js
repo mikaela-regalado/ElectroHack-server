@@ -16,11 +16,13 @@ const middlewares = {
       : res.status(401).json({ error: "Identifíquese o regístrese" }),
 
   isAdmin: (req, res, next) =>
-    req.user.isAdmin
-      ? next()
-      : res
-          .status(401)
-          .json({ error: "No tiene autorización para realizar esta acción" }),
+    req.user
+      ? req.user.isAdmin
+        ? next()
+        : res
+            .status(401)
+            .json({ error: "No tiene autorización para realizar esta acción" })
+      : res.json({ error: "Identifiquese" }),
 };
 
 module.exports = middlewares;

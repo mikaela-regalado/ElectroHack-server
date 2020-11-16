@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 const slugify = require("slugify");
 
 const categorySchema = new Schema({
-  code: Number,
-  type: String,
+  code: { type: Number, unique: true },
+  type: { type: String, unique: true },
   slug: String,
   description: String,
   image: String,

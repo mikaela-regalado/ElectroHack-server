@@ -12,7 +12,12 @@ const orderSchema = new Schema({
   ],
   state: String,
   paymentMethod: String,
-  createdAt: Date,
+  createdAt: {
+    type: Date,
+    set: (date) => moment(date).format("YY"),
+    get: (date) => moment(date).format("YY"),
+    alias: "created",
+  },
 });
 
 orderSchema.virtual("created").get(function () {
