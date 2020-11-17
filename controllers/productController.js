@@ -1,9 +1,15 @@
 const { Category } = require("../models");
 const db = require("../models");
+const categoryController = require("./categoryController");
 
 const productController = {
   list: async (req, res) => {
-    const products = await db.Product.find(req.query).limit(10);
+    let products = [];
+    if (req.query.outstanding) {
+      products = await db.Product.find(req.query).limit(10);
+    } else {
+      products = await db.Product.find(req.query);
+    }
     res.status(200).json(products);
   },
 
@@ -13,20 +19,22 @@ const productController = {
   },
 
   store: async (req, res) => {
-    // console.log(req.body);
     const newProduct = new db.Product({
       name: req.body.name,
       description: req.body.description,
       image: req.body.image,
       price: req.body.price,
       stock: req.body.stock,
-      outstanding: true,
-      slug: "post-fake",
-      category: "5fad419f264ed2144cd6d440",
+      outstanding: req.body.outstanding,
+      slugify: req.body.name,
     });
+    category = await Category.findById(req.body.category);
+    category.productList.push(newProduct._id);
+    category.save();
+    newProduct.category = category._id;
     await newProduct.save();
 
-    res.status(200).json({ salio: "salio" });
+    res.status(200).json(newProduct);
   },
 
   update: async (req, res) => {
@@ -39,7 +47,7 @@ const productController = {
         price: req.body.price,
         stock: req.body.stock,
         outstanding: req.body.outstanding,
-        slug: req.body.slug,
+        slugify: req.body.name,
         category: req.body.category,
       },
       function (err) {
@@ -47,7 +55,10 @@ const productController = {
       }
     );
     console.log(req.body);
-    res.status(200).json({ "producto actualizado": productToEdit });
+    category = await Category.findById(req.body.category);
+    category.productList.push(productToEdit._id);
+    category.save();
+    res.status(200).json(productToEdit);
   },
 
   delete: async (req, res) => {
