@@ -15,7 +15,6 @@ const categoryController = {
   },
 
   store: async (req, res) => {
-    // console.log(req.body);
     const newCategory = new db.Category({
       code: req.body.code,
       type: req.body.type,

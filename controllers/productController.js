@@ -54,7 +54,6 @@ const productController = {
         if (err) return handleError(err);
       }
     );
-    console.log(req.body);
     category = await Category.findById(req.body.category);
     category.productList.push(productToEdit._id);
     category.save();
@@ -69,8 +68,6 @@ const productController = {
         // deleted at most one tank document
       }
     );
-
-    console.log(productToDelete);
     res.status(200).json({ message: productToDelete });
   },
 };
