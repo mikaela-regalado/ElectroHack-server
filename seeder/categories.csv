@@ -1,4 +1,4 @@
-code, type,  description, image, productList
+code, type,  description, image
 0, "Imagen y Sonido", "Productos de imagen y sonido que estan buenos", "image&sound.jpg"
 1, "Climatización", "Productos para aclimatarse", "climatization.jpg"
 2, "Limpieza", "Productos de limpieza ","cleaning.jpg"

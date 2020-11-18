@@ -1,0 +1,2 @@
+firstName, lastName, email, password, isAdmin
+"Nacho", "A", "root@gmail.com", "root", true
