@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const path = require("path");
-const seeder = require("./seeder");
+const seeder = require("./seeder/seeder");
 const PORT = process.env.APP_PORT;
 const userRouter = require("./Routes/userRouter");
 const adminRouter = require("./Routes/adminRouter");
@@ -16,7 +16,7 @@ app.use(cors());
 app.use("/admin", adminRouter);
 app.use(userRouter);
 
-// seeder();
+seeder();
 
 app.listen(PORT, () =>
   console.log(`App on: ${path.join(__dirname, process.env.APP_PORT)}`)
