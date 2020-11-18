@@ -14,9 +14,6 @@ const orderSchema = new Schema({
   paymentMethod: String,
   createdAt: {
     type: Date,
-    set: (date) => moment(date).format("YY"),
-    get: (date) => moment(date).format("YY"),
-    alias: "created",
   },
 });
 

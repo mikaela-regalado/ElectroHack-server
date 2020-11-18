@@ -43,7 +43,6 @@ const categoryController = {
         if (err) return handleError(err);
       }
     );
-    // console.log(req.body);
     res.status(200).json({ "caegoría actualizado": categoryToEdit });
   },
 

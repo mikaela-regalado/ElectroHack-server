@@ -16,7 +16,7 @@ const orderController = {
   },
 
   list: async (req, res) => {
-    const orders = await db.Order.find(req.query);
+    const orders = await db.Order.find(req.query).populate("list_products._id");
     res.status(200).json(orders);
   },
 
