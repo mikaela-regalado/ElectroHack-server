@@ -5,7 +5,7 @@ const categoryController = require("../controllers/categoryController");
 const orderController = require("../controllers/orderController");
 const userController = require("../controllers/userController");
 const middlewares = require("../utils/middlewares");
-const seeder = require("../seeder");
+const seeder = require("../seeder/seeder");
 const checkJwt = require("express-jwt");
 router.get("/seeder", async function (req, res) {
   await seeder();
