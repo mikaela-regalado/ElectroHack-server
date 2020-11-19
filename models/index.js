@@ -5,7 +5,7 @@ const Order = require("./Order");
 const User = require("./User");
 const Admin = require("./Admin");
 
-mongoose.connect("mongodb://localhost/db-ElectroHack", {
+mongoose.connect(process.env.DATABASE_CONNECTION, {
   useNewUrlParser: true,
 });
 
