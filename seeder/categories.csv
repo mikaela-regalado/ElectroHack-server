@@ -1,7 +1,7 @@
 code, type,  description, image
-0, "Imagen y Sonido", "Productos de imagen y sonido que estan buenos", "image%26sound.jpg"
-1, "Climatización", "Productos para aclimatarse", "climatizacion1.jpg"
+0, "Imagen y Sonido", "Productos de imagen y sonido que estan buenos", "image&sound.jpg"
+1, "Climatización", "Productos para aclimatarse", "climatization.jpg"
 2, "Limpieza", "Productos de limpieza ","cleaning.jpg"
-3, "Cocina", "Productos de cocina","kitchen1.jpg"
-4, "Otros", "Productos de otro tipo","entretenimiento.jpg"
+3, "Cocina", "Productos de cocina","kitchen.jpg"
+4, "Otros", "Productos de otro tipo","others.jpg"
 
