@@ -12,3 +12,4 @@ module.exports = function adminToken(user) {
     userEmail: user.email,
   };
 };
+/*Un comentario para pushear*/
