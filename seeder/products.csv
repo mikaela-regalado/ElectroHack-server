@@ -7,3 +7,39 @@ name, description, image, price, stock, outstanding, code
 "Microondas", "700 W - 11 niveles de potencia.", "microwave.jpg", 2500, 100, false, 3
 "Cocina", "Medidas - 85.5 x 51 x 57.3 cm (alto x ancho x profundidad)", "oven.jpg", 3400, 13, false, 3
 "Máq.de coser", "Costura recta / costura invisible / puntadas elásticas / zig-zag / pega botones y cierres / sobrehila / zurce, frunce y un detalle innovador es que hace ojales en un solo paso.", "sewing.jpg", 1300, 55, false, 4
+"Camara SRL", "Sensor de imagen - Sensor CMOS de 23.5 x 15.6mm. (24.2 megapíxeles).", "camara.jpg", 5500, 25, true,0 
+"Convector", "Calor continuo.
+Niveles de calor - 3 (750 / 1250 / 2000 W).", "convector.jpg", 2500, 33, false,1 
+"Drone", "Fácil para principiantes. 
+on Altitude Hold, el drone puede seguir flotando cuando sus manos están fuera del control.
+Además, el botón One Key Engine Start / Landing te ayuda a desbloquear o detener el dron con solo presionar un botón. Es más fácil y conveniente para principiantes.
+La función de parada de emergencia le permite dejar de volar inmediatamente cuando el drone está fuera de vista.", "drone.jpg", 1300, 17, true,4 
+"Heladera", "Tipo de frío - Seco.
+Puertas - 2 Con temperatura independiente", "heladera1.jpg", 7800, 7, true,3
+"Lavarropa", "Capacidad - 6 kg de ropa.
+Panel de control - Digital.
+Tipo - Automático", "lavarropas.jpg", 10000, 33, true,2
+"Playstation", "Incluye: Guía de inicio rápido, cable HDMI, cable USB, control DUALSHOCK 4, auriculares y cable de alimentación AC", "playstation.jpg", 8000, 127, true,4
+"Ventilador de techo", "3 Velocidades.
+Luces.
+4 Aspas reversibles en madera.", "ventilador.jpg", 4500, 88, false,1
+"Motosierra", "Tipo - Motosierra a nafta.
+Espada - 40 cm.
+Freno - De cadena", "motosierra.jpg", 1100, 13, false,4
+"Cortacésped", "Cilindrada - 100 cc.
+Tipo - 4 tiempos.", "cortacesped.jpg", 9800, 5, true,4
+"Enceradora", "Incluye - 1 juego de cepillos y 1 juego de franelas.", "enceradora.jpg", 750, 42, true,2
+"Parlante Bluetooth", "Potencia de parlantes - 2.5W RMS.
+Micrófono - Incorporado.", "parlanteBt.jpg", 1250, 63, true,0
+"Aspiradora", "Incluye - Caño metalico telescópico y piezas intercambiables.
+Indicador - De bolsa llena.
+Cable retráctil - Mediante botón.
+Bolsa - De tela.", "aspiradora.jpg", 1250, 42, true,2
+"Reproductor DVD", "Funciones - Zoom/Avance y retroceso rápido/Memoria de continuación de la película desde el punto de interrupción/Efecto de ecualización/Hasta 8 idiomas y 32 tipos de subtítulos (si lo permite el disco)", "dvd.jpg", 750, 242, false,0
+"Secarropas", "Timer - De 20 a 220 minutos.
+Capacidad - 5 kg.", "secarropas.jpg", 3750, 22, true,2
+"Lavavajilla", "Capacidad - 8 cubiertos.
+Funciones - Media carga.
+Programas - 6 programas: normal, intensivo, cristal, eco, 1 hora, rápido", "lavavajillas.jpg", 7750, 21, true,2
+"Minihorno", "Potencia - 1200 W", "minihorno.jpg", 750, 11, true,3
+"Computadora", "Incluye: Teclado, mouse, parlantes, cámara web y CD con drivers de placa madre (el modelo de los periféricos varía de acuerdo a la partida)", "pc.jpg", 1750, 11, false,4

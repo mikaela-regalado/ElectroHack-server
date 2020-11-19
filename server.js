@@ -16,7 +16,10 @@ app.use(cors());
 app.use("/admin", adminRouter);
 app.use(userRouter);
 
-seeder();
+seeder
+  .admin()
+  .then(() => seeder.categories())
+  .then(() => seeder.products());
 
 app.listen(PORT, () =>
   console.log(`App on: ${path.join(__dirname, process.env.APP_PORT)}`)
