@@ -7,8 +7,9 @@ const userController = require("../controllers/userController");
 const middlewares = require("../utils/middlewares");
 const seeder = require("../seeder");
 const checkJwt = require("express-jwt");
-router.get("/seeder", function () {
+router.get("/seeder", function (req, res) {
   seeder();
+  return res.json("hola");
 });
 //Products
 router.get("/products", productController.list); //Productos de la home
