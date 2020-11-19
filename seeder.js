@@ -1,4 +1,4 @@
-const { Product, Category } = require("./models");
+const { Product, Category, Admin } = require("./models");
 const faker = require("faker");
 
 module.exports = async () => {
@@ -42,7 +42,14 @@ module.exports = async () => {
   });
   others.slugify = others.type;
   others.save();
-
+  const adminUser = new Admin({
+    firstName: "root",
+    lastName: "root",
+    email: "root@root.com",
+    password: "root",
+    isAdmin: true,
+  });
+  adminUser.save();
   for (let i = 0; i < 40; i++) {
     const product = new Product({
       name: faker.commerce.productName(),

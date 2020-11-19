@@ -24,7 +24,7 @@ router.get("/products", productController.list); //Productos de la home y catego
 router.get("/products/:slug", productController.one); //Producto
 router.post("/products", productController.store); //Crear un producto
 router.patch("/products", productController.update); //Update un producto
-router.delete("/products", productController.delete); //Update un producto
+router.delete("/products", productController.delete); //delete un producto
 
 //Categories
 router.get("/categories", categoryController.list); //Categorias
