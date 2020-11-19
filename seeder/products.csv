@@ -1,0 +1,9 @@
+name, description, image, price, stock, outstanding, code
+"TV LED", "2 puertos USB - Compatibles con discos duros externos con formato FAT32 / NTFS de hasta 750 GB.", "tv.jpg", 5450, 23, true, 0
+"Radio de Bolsillo", "Alimentación - 2 pilas AA (no incluidas).", "radio.jpg", 490, 12, false, 0
+"Auriculares", "Conector para auriculares (3.5mm).", "headphones.jpg", 280, 30, false, 0
+"Aire acondicionado", "Temperatura regulable - mín. 17º - máx. 30º.", "aircon.jpg", 10000, 45, true, 1
+"Robotina", "1 cepillo principal con dos tipos de cerdas para lograr una limpieza profunda / 2 cepillos laterales para esquinas y bordes.", "robotina.jpg", 7000, 44, true, 2
+"Microondas", "700 W - 11 niveles de potencia.", "microwave.jpg", 2500, 100, false, 3
+"Cocina", "Medidas - 85.5 x 51 x 57.3 cm (alto x ancho x profundidad)", "oven.jpg", 3400, 13, false, 3
+"Máq.de coser", "Costura recta / costura invisible / puntadas elásticas / zig-zag / pega botones y cierres / sobrehila / zurce, frunce y un detalle innovador es que hace ojales en un solo paso.", "sewing.jpg", 1300, 55, false, 4
