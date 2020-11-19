@@ -5,12 +5,9 @@ const Order = require("./Order");
 const User = require("./User");
 const Admin = require("./Admin");
 
-mongoose.connect(
-  "mongodb+srv://root:root@twitter.27auu.mongodb.net/<dbname>?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true,
-  }
-);
+mongoose.connect(process.env.DATABASE_CONNECTION, {
+  useNewUrlParser: true,
+});
 
 mongoose.connection
   .once("open", () =>
