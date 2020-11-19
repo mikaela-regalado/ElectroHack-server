@@ -10,7 +10,7 @@ const productController = {
     if (req.query.outstanding) {
       products = await db.Product.find(req.query).limit(12);
     } else {
-      products = await db.Product.find(req.query);
+      products = await db.Product.find({});
     }
     res.status(200).json(products);
   },
