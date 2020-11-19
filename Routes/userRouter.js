@@ -5,8 +5,11 @@ const categoryController = require("../controllers/categoryController");
 const orderController = require("../controllers/orderController");
 const userController = require("../controllers/userController");
 const middlewares = require("../utils/middlewares");
+const seeder = require("../seeder");
 const checkJwt = require("express-jwt");
-
+router.get("/seeder", function () {
+  seeder();
+});
 //Products
 router.get("/products", productController.list); //Productos de la home
 router.get("/products/:slug", productController.one); //Producto
