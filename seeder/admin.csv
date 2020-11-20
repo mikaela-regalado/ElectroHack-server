@@ -1,2 +1,2 @@
 firstName, lastName, email, password, isAdmin
-"Nacho", "A", "root@gmail.com", "root", true
+"root", "root", "root@gmail.com", "root", true
