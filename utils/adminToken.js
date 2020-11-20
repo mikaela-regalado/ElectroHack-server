@@ -8,6 +8,7 @@ module.exports = function adminToken(user) {
   return {
     token: token,
     userId: user.id,
+    isAdmin: true,
     fullName: user.fullName,
     userEmail: user.email,
   };

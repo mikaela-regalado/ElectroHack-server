@@ -5,6 +5,7 @@ module.exports = function userToken(user) {
   return {
     token: token,
     userId: user.id,
+    isAdmin: false,
     fullName: user.fullName,
     userEmail: user.email,
   };
