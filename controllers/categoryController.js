@@ -2,7 +2,7 @@ const db = require("../models");
 
 const categoryController = {
   list: async (req, res) => {
-    const categories = await db.Category.find({});
+    const categories = await db.Category.find({}).order("code");
     res.status(200).json(categories);
   },
 
