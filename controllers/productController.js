@@ -16,9 +16,9 @@ const productController = {
   },
 
   one: async (req, res) => {
-    const product = await (
-      await db.Product.findOne({ slug: req.params.slug })
-    ).populate("category");
+    const product = await db.Product.findOne({
+      slug: req.params.slug,
+    }).populate("category");
     res.status(200).json(product);
   },
 
