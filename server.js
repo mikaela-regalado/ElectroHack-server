@@ -8,10 +8,10 @@ const PORT = process.env.APP_PORT;
 const userRouter = require("./Routes/userRouter");
 const adminRouter = require("./Routes/adminRouter");
 
+app.use(cors());
 app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors());
 
 app.use("/admin", adminRouter);
 app.use(userRouter);
