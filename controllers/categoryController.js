@@ -1,4 +1,6 @@
 const db = require("../models");
+const formidable = require("formidable");
+const imagenesS3 = require("../utils/imagenesS3");
 
 const categoryController = {
   list: async (req, res) => {
@@ -15,18 +17,28 @@ const categoryController = {
   },
 
   store: async (req, res) => {
-    const newCategory = new db.Category({
-      code: req.body.code,
-      type: req.body.type,
-      slug: req.body.slug,
-      description: req.body.description,
-      image: req.body.image,
-      productList: [],
+    const form = formidable({
+      multiples: true,
+      keepExtensions: true,
     });
 
-    await newCategory.save();
+    form.parse(req, async (err, fields, files) => {
+      const newFileName = await imagenesS3.upload(files, s3);
 
-    res.status(200).json({ message: newCategory });
+      const { code, type, slug, description, productList } = fields;
+      const newCategory = new db.Category({
+        code,
+        type,
+        slugify: slug,
+        description,
+        productList,
+        image: newFileName,
+      });
+
+      await newCategory.save();
+
+      res.status(200).json(newProduct);
+    });
   },
 
   update: async (req, res) => {
