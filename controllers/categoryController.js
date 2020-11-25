@@ -43,7 +43,6 @@ const categoryController = {
   },
 
   update: async (req, res) => {
-    console.log("UPDATE");
     const form = formidable({
       multiples: true,
       keepExtensions: true,
