@@ -43,6 +43,7 @@ const categoryController = {
   },
 
   update: async (req, res) => {
+    console.log("UPDATE");
     const form = formidable({
       multiples: true,
       keepExtensions: true,
@@ -51,20 +52,20 @@ const categoryController = {
     form.parse(req, async (err, fields, files) => {
       const newFileName = await imagenesS3.upload(files, s3);
 
-      const { code, type, description } = fields;
+      const { code, type, description, productList } = fields;
 
       const categoryToEdit = await db.Category.updateOne(
-        { code: req.body.code },
+        { code },
         {
           type,
           image: newFileName,
           slugify: type,
           description,
-          productList,
-        },
-        function (err) {
-          if (err) return handleError(err);
+          /* productList */
         }
+        /* function (err) {
+          if (err) return handleError(err);
+        } */
       );
       res.status(200).json(categoryToEdit);
     });
