@@ -52,26 +52,37 @@ const productController = {
   },
 
   update: async (req, res) => {
-    const productToEdit = await db.Product.updateOne(
-      { _id: req.body._id },
-      {
-        name: req.body.name,
-        description: req.body.description,
-        image: req.body.image,
-        price: req.body.price,
-        stock: req.body.stock,
-        outstanding: req.body.outstanding,
-        slugify: req.body.name,
-        category: req.body.category,
-      },
-      function (err) {
-        if (err) return handleError(err);
-      }
-    );
-    category = await Category.findById(req.body.category);
-    category.productList.push(productToEdit._id);
-    category.save();
-    res.status(200).json(productToEdit);
+    const form = formidable({
+      multiples: true,
+      keepExtensions: true,
+    });
+
+    form.parse(req, async (err, fields, files) => {
+      const newFileName = await imagenesS3.upload(files, s3);
+      const { name, description, price, stock, outstanding, category } = fields;
+
+      const productToEdit = await db.Product.updateOne(
+        { _id: req.body._id },
+        {
+          name,
+          description,
+          price,
+          stock,
+          outstanding,
+          slugify: name,
+          category,
+          image: newFileName,
+        },
+        function (err) {
+          if (err) return handleError(err);
+        }
+      );
+      let categ = await db.Category.findById(category);
+      categ.productList.push(productToEdit._id);
+      categ.save();
+      await newProduct.save();
+      res.status(200).json(productToEdit);
+    });
   },
 
   delete: async (req, res) => {

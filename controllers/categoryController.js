@@ -2,6 +2,8 @@ const db = require("../models");
 const formidable = require("formidable");
 const imagenesS3 = require("../utils/imagenesS3");
 
+const s3 = imagenesS3.configS3();
+
 const categoryController = {
   list: async (req, res) => {
     const categories = await db.Category.find({}).sort("code");
@@ -25,37 +27,47 @@ const categoryController = {
     form.parse(req, async (err, fields, files) => {
       const newFileName = await imagenesS3.upload(files, s3);
 
-      const { code, type, slug, description, productList } = fields;
+      const { code, type, description } = fields;
       const newCategory = new db.Category({
         code,
         type,
-        slugify: slug,
+        slugify: type,
         description,
-        productList,
         image: newFileName,
       });
 
       await newCategory.save();
 
-      res.status(200).json(newProduct);
+      res.status(200).json(newCategory);
     });
   },
 
   update: async (req, res) => {
-    const categoryToEdit = await db.Category.updateOne(
-      { code: req.body.code },
-      {
-        type: req.body.type,
-        image: req.body.image,
-        slug: req.body.slug,
-        description: req.body.description,
-        productList: db.Category.productList,
-      },
-      function (err) {
-        if (err) return handleError(err);
-      }
-    );
-    res.status(200).json({ "caegoría actualizado": categoryToEdit });
+    const form = formidable({
+      multiples: true,
+      keepExtensions: true,
+    });
+
+    form.parse(req, async (err, fields, files) => {
+      const newFileName = await imagenesS3.upload(files, s3);
+
+      const { code, type, description } = fields;
+
+      const categoryToEdit = await db.Category.updateOne(
+        { code: req.body.code },
+        {
+          type,
+          image: newFileName,
+          slugify: type,
+          description,
+          productList,
+        },
+        function (err) {
+          if (err) return handleError(err);
+        }
+      );
+      res.status(200).json(categoryToEdit);
+    });
   },
 
   delete: async (req, res) => {
