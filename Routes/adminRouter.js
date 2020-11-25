@@ -28,6 +28,7 @@ router.delete("/products", productController.delete); //delete un producto
 
 //Categories
 router.get("/categories", categoryController.list); //Categorias
+router.get("/categories/:slug", categoryController.one); //Producto
 router.post("/categories", categoryController.store); //Categorias
 router.patch("/categories", categoryController.update); //Categorias
 router.delete("/categories", categoryController.delete); //Categorias
